@@ -203,7 +203,7 @@ let militaryUnit = {
 };
 
   function Mission1(unit){
-    const chiefOfStaff = unit.commandStructure.chiefOfStaff//.commanders.find(commander => commander.role === "Chief of staff");
+    const chiefOfStaff = unit.commandStructure.chiefOfStaff;
     if (chiefOfStaff) {
         return {
           rank: chiefOfStaff.rank,
@@ -228,7 +228,7 @@ function Mission3(NewDeployment, unit) {
 }
 
 function Mission4(newFirearms, unit) {
-    let fA = unit.equipment.firearms.find(g => g.type == newFirearms.type) 
+    let fA = unit.equipment.firearms.find(g => g.type == newFirearms.type && g.status == newFirearms.status) 
     if (fA) {
        fA.quantity += newFirearms.quantity ; 
     }
